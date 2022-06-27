@@ -20,6 +20,7 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
-    "firebase-tools": "^11.1.0"
+    "firebase-tools": "^11.1.0",
+    "swiper": "^8.2.5"
   }
 }
