@@ -8,6 +8,7 @@ body {
   position: relative;
   height: 100%;
   font-family: "IBM Plex Sans KR", sans-serif;
+  background-color: #f4f4f4;
 }
 
 .swiper-wrapper {
