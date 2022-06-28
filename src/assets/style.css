@@ -9,3 +9,7 @@ body {
   height: 100%;
   font-family: "IBM Plex Sans KR", sans-serif;
 }
+
+.swiper-wrapper {
+  height: 100vh !important;
+}
