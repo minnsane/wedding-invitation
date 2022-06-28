@@ -59,7 +59,7 @@
     content: "";
     position: absolute;
     width: 50%;
-    border: solid rgb(104, 104, 171);
+    border: solid #bebf9b;
   }
   .card:nth-child(odd)::before {
     left: 0;
@@ -91,14 +91,14 @@
   .info {
     display: flex;
     flex-direction: column;
-    background: #f1f0ec;
-    color: gray;
+    background: #fff;
+    color: #333e42;
     border-radius: 10px;
     padding: 10px;
   }
 
   .title {
-    color: rgb(104, 104, 171);
+    color: #898c70;
     position: relative;
     font-weight: bold;
     font-size: 14px;
@@ -113,7 +113,7 @@
     height: 10px;
     background: white;
     border-radius: 999px;
-    border: 3px solid rgb(104, 104, 171);
+    border: 3px solid #bebf9b;
   }
 
   .info p {
