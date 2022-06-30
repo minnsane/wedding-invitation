@@ -23,23 +23,30 @@
   ];
 </script>
 
-<div class="timeline">
-  <div class="outer">
-    {#each cards as card}
-      <div class="card">
-        <div class="info">
-          <h3 class="title">{card.title}</h3>
-          <p>{@html card.description}</p>
+<div class="wrapper">
+  <div class="timeline">
+    <div class="outer">
+      {#each cards as card}
+        <div class="card">
+          <div class="info">
+            <h3 class="title">{card.title}</h3>
+            <p>{@html card.description}</p>
+          </div>
         </div>
-      </div>
-    {/each}
+      {/each}
+    </div>
   </div>
 </div>
 
 <style>
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+  }
   .timeline {
-    margin: 20px auto;
-    padding: 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
   }
