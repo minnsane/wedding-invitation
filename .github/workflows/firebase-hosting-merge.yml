@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-'on':
+"on":
   push:
     branches:
       - master
@@ -13,8 +13,17 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        env:
+          GROOM_NAME: "${{secrets.GROOM_NAME}}"
+          GROOM_INSTAGRAM: "${{secrets.GROOM_INSTAGRAM}}"
+          GROOM_KAKAOTALK: "${{secrets.GROOM_KAKAOTALK}}"
+          GROOM_PHONE_NUMBER: "${{secrets.GROOM_PHONE_NUMBER}}"
+          BRIDE_NAME: "${{secrets.BRIDE_NAME}}"
+          BRIDE_INSTAGRAM: "${{secrets.BRIDE_INSTAGRAM}}"
+          BRIDE_KAKAOTALK: "${{secrets.BRIDE_KAKAOTALK}}"
+          BRIDE_PHONE_NUMBER: "${{secrets.BRIDE_PHONE_NUMBER}}"
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MINJ_HEARTS_SHWA }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_MINJ_HEARTS_SHWA }}"
           channelId: live
           projectId: minj-hearts-shwa
