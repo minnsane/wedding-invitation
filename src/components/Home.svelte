@@ -1,17 +1,17 @@
 <script>
-  const [groom, bride] = ["이성화", "김민정"];
-  const connector = "+";
-  const details = ["22년 9월 17일 12시 40분", "베뉴지웨딩 네이처홀"];
+  import { derived } from "svelte/store";
+
+  import { couple, connector, details } from "../shared/app.store";
 </script>
 
 <div class="main">
   <div class="description">
     <h1 class="title">
-      <span>{groom}</span>
-      <span class="connector">{connector}</span>
-      <span>{bride}</span>
+      <span>{$couple.groom.name}</span>
+      <span class="connector">{$connector}</span>
+      <span>{$couple.bride.name}</span>
     </h1>
-    {#each details as detail}
+    {#each $details as detail}
       <span class="detail">{detail}</span>
     {/each}
   </div>

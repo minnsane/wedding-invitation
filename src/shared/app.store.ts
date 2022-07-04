@@ -1,34 +1,18 @@
-import { readable } from "svelte/store";
-import type { Couple, MainCharacter } from "./app";
+import { derived, readable, writable } from "svelte/store";
+import type { ApiResponse, Couple, MainCharacter } from "./app";
 
-const isDev = process.env.NODE_ENV === "development";
+export const response = writable({
+  couple: {
+    groom: { name: "", contacts: [] },
+    bride: { name: "", contacts: [] },
+  },
+  details: [],
+  connector: "",
+  greetings: [],
+} as ApiResponse);
 
-const groom: MainCharacter = isDev
-  ? {
-      name: import.meta.env.VITE_GROOM_NAME,
-      instagram: import.meta.env.VITE_GROOM_INSTAGRAM,
-      kakaotalk: import.meta.env.VITE_GROOM_KAKAOTALK,
-      phoneNumber: import.meta.env.VITE_GROOM_PHONE_NUMBER,
-    }
-  : {
-      name: process.env.GROOM_NAME,
-      instagram: process.env.GROOM_INSTAGRAM,
-      kakaotalk: process.env.GROOM_KAKAOTALK,
-      phoneNumber: process.env.GROOM_PHONE_NUMBER,
-    };
+export const couple = derived(response, ($response) => $response.couple);
+export const details = derived(response, ($response) => $response.details);
+export const connector = derived(response, ($response) => $response.connector);
 
-const bride: MainCharacter = isDev
-  ? {
-      name: import.meta.env.VITE_BRIDE_NAME,
-      instagram: import.meta.env.VITE_BRIDE_INSTAGRAM,
-      kakaotalk: import.meta.env.VITE_BRIDE_KAKAOTALK,
-      phoneNumber: import.meta.env.VITE_BRIDE_PHONE_NUMBER,
-    }
-  : {
-      name: process.env.BRIDE_NAME,
-      instagram: process.env.BRIDE_INSTAGRAM,
-      kakaotalk: process.env.BRIDE_KAKAOTALK,
-      phoneNumber: process.env.BRIDE_PHONE_NUMBER,
-    };
-
-export const couple = readable({ groom, bride } as Couple);
+export const greetings = derived(response, ($response) => $response.greetings);

@@ -46,7 +46,7 @@
     height: inherit;
   }
   .timeline {
-    padding: 0 20px;
+    padding: 0 30px;
     display: flex;
     justify-content: center;
   }
