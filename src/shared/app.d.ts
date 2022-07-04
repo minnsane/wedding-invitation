@@ -1,3 +1,9 @@
+export interface ApiResponse {
+  couple: Couple;
+  details: string[];
+  connector: string;
+}
+
 export interface MainCharacter {
   name: string;
   instagram: string;

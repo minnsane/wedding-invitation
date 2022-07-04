@@ -1,0 +1,18 @@
+{
+  "couple": {
+    "groom": {
+      "name": "이성화",
+      "instagram": "https://www.instagram.com/_seonghwa/",
+      "kakaotalk": "http://qr.kakao.com/talk/opriu_PyO7kTsvWeORvmcQ57UB4-",
+      "phoneNumber": "01089573919"
+    },
+    "bride": {
+      "name": "김민정",
+      "instagram": "https://www.instagram.com/minnsane/",
+      "kakaotalk": "http://qr.kakao.com/talk/gZM7ePDrrWNENBTzGoqU4zxN0u4-",
+      "phoneNumber": "01058559410"
+    }
+  },
+  "details": ["22년 9월 17일 12시 40분", "베뉴지웨딩 네이처홀"],
+  "connector": "+"
+}
