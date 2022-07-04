@@ -2,17 +2,54 @@
   "couple": {
     "groom": {
       "name": "이성화",
-      "instagram": "https://www.instagram.com/_seonghwa/",
-      "kakaotalk": "http://qr.kakao.com/talk/opriu_PyO7kTsvWeORvmcQ57UB4-",
-      "phoneNumber": "01089573919"
+      "contacts": [
+        { "type": "phone", "link": "01089573919" },
+        {
+          "type": "kakaotalk",
+          "link": "http://qr.kakao.com/talk/opriu_PyO7kTsvWeORvmcQ57UB4-"
+        },
+        { "type": "instagram", "link": "https://www.instagram.com/_seonghwa/" }
+      ]
     },
     "bride": {
       "name": "김민정",
-      "instagram": "https://www.instagram.com/minnsane/",
-      "kakaotalk": "http://qr.kakao.com/talk/gZM7ePDrrWNENBTzGoqU4zxN0u4-",
-      "phoneNumber": "01058559410"
+      "contacts": [
+        { "type": "phone", "link": "01058559410" },
+        {
+          "type": "kakaotalk",
+          "link": "http://qr.kakao.com/talk/gZM7ePDrrWNENBTzGoqU4zxN0u4-"
+        },
+        { "type": "instagram", "link": "https://www.instagram.com/minnsane/" }
+      ]
     }
   },
   "details": ["22년 9월 17일 12시 40분", "베뉴지웨딩 네이처홀"],
-  "connector": "+"
+  "connector": "+",
+  "greetings": [
+    {
+      "isSubText": false,
+      "followingGapLines": 1,
+      "text": "예쁜 예감이 들었다."
+    },
+    {
+      "isSubText": false,
+      "followingGapLines": 1,
+      "text": "우리는 언제나 손을 잡고 있게 될 것이다."
+    },
+    {
+      "isSubText": true,
+      "followingGapLines": 2,
+      "text": "- 이이체, 연인 中"
+    },
+    {
+      "isSubText": false,
+      "followingGapLines": 1,
+      "text": "소중한 시간, 귀한 걸음으로 축복해주시면"
+    },
+    {
+      "isSubText": false,
+      "followingGapLines": 0,
+      "text": " 늘 그 마음 기억하며 살겠습니다."
+    }
+  ]
 }
