@@ -1,15 +1,15 @@
 <script>
-  import { couple, connector, details } from "../shared/app.store";
+  const details = ["22년 9월 17일 12시 40분", "베뉴지웨딩 네이처홀"];
 </script>
 
 <div class="main">
   <div class="description">
     <h1 class="title">
-      <span>{$couple.groom.name}</span>
-      <span class="connector">{$connector}</span>
-      <span>{$couple.bride.name}</span>
+      <span>이성화</span>
+      <span class="connector">+</span>
+      <span>김민정</span>
     </h1>
-    {#each $details as detail}
+    {#each details as detail}
       <span class="detail">{detail}</span>
     {/each}
   </div>
@@ -17,7 +17,7 @@
 
 <style>
   .main {
-    background-image: url("../assets/main.jpg");
+    background-image: url("../../assets/main.jpg");
     height: 100%;
     background-size: cover;
     background-position: center;
