@@ -1,6 +1,4 @@
 <script>
-  import { derived } from "svelte/store";
-
   import { couple, connector, details } from "../shared/app.store";
 </script>
 
@@ -19,7 +17,7 @@
 
 <style>
   .main {
-    background-image: url("../assets/photo01.jpg");
+    background-image: url("../assets/main.jpg");
     height: 100%;
     background-size: cover;
     background-position: center;
