@@ -2,7 +2,10 @@
 </script>
 
 <div class="wrapper">
-  <img src="/src/assets/inprogress.gif" alt="in progress" />
+  <img
+    src="https://thumbs.gfycat.com/MajorAnotherArctichare-max-1mb.gif"
+    alt="in progress"
+  />
 </div>
 
 <style>
