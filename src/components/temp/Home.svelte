@@ -17,7 +17,7 @@
 
 <style>
   .main {
-    background-image: url("../../assets/main.jpg");
+    background-image: url("/image/main.jpg");
     height: 100%;
     background-size: cover;
     background-position: center;

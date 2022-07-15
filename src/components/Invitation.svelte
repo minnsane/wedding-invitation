@@ -24,7 +24,7 @@
       <div />
       {#each $couple.groom.contacts as contact}
         <a href={contact.link}>
-          <img src="/src/assets/{contact.type}.png" alt={contact.type} />
+          <img src="/image/{contact.type}.png" alt={contact.type} />
         </a>
       {/each}
     </div>
@@ -37,7 +37,7 @@
           <div class="p-buttons">
             {#each parent.contacts as contact}
               <a href={contact.link}>
-                <img src="/src/assets/{contact.type}.png" alt={contact.type} />
+                <img src="/image/{contact.type}.png" alt={contact.type} />
               </a>
             {/each}
           </div>
@@ -51,7 +51,7 @@
     <div class="buttons">
       {#each $couple.bride.contacts as contact}
         <a href={contact.link}>
-          <img src="/src/assets/{contact.type}.png" alt="hh" />
+          <img src="/image/{contact.type}.png" alt="hh" />
         </a>
       {/each}
     </div>
@@ -64,7 +64,7 @@
           <div class="p-buttons">
             {#each parent.contacts as contact}
               <a href={contact.link}>
-                <img src="/src/assets/{contact.type}.png" alt={contact.type} />
+                <img src="/image/{contact.type}.png" alt={contact.type} />
               </a>
             {/each}
           </div>
