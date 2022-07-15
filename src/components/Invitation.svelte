@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { derived } from "svelte/store";
   import { couple, greetings } from "../shared/app.store";
 </script>
 
@@ -25,9 +24,25 @@
       <div />
       {#each $couple.groom.contacts as contact}
         <a href={contact.link}>
-          <img src="/src/assets/{contact.type}.png" alt="hh" />
+          <img src="/image/{contact.type}.png" alt={contact.type} />
         </a>
       {/each}
+    </div>
+    <div class="parents">
+      <div class="p-wrapper">
+        <span class="p-title">신랑측 혼주</span>
+        {#each $couple.groom.parents as parent}
+          <span class="p-role">{parent.role}</span>
+          <span class="p-name">{parent.name}</span>
+          <div class="p-buttons">
+            {#each parent.contacts as contact}
+              <a href={contact.link}>
+                <img src="/image/{contact.type}.png" alt={contact.type} />
+              </a>
+            {/each}
+          </div>
+        {/each}
+      </div>
     </div>
   </div>
   <div class="contact bride">
@@ -36,9 +51,25 @@
     <div class="buttons">
       {#each $couple.bride.contacts as contact}
         <a href={contact.link}>
-          <img src="/src/assets/{contact.type}.png" alt="hh" />
+          <img src="/image/{contact.type}.png" alt="hh" />
         </a>
       {/each}
+    </div>
+    <div class="parents">
+      <div class="p-wrapper">
+        <span class="p-title">신부측 혼주</span>
+        {#each $couple.bride.parents as parent}
+          <span class="p-role">{parent.role}</span>
+          <span class="p-name">{parent.name}</span>
+          <div class="p-buttons">
+            {#each parent.contacts as contact}
+              <a href={contact.link}>
+                <img src="/image/{contact.type}.png" alt={contact.type} />
+              </a>
+            {/each}
+          </div>
+        {/each}
+      </div>
     </div>
   </div>
 </div>
@@ -50,7 +81,7 @@
     grid-template-columns: 1fr 4fr 4fr 1fr;
     grid-template-rows: 1fr 3fr 5fr 1fr;
     row-gap: 10px;
-    column-gap: 20px;
+    column-gap: 30px;
   }
 
   .introduction {
@@ -122,6 +153,54 @@
   }
 
   .contact .buttons a img {
-    width: 85%;
+    width: 80%;
+    opacity: 0.8;
+  }
+
+  .parents {
+    margin-top: 4vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .parents .p-wrapper {
+    text-align: center;
+  }
+
+  .groom .parents .p-wrapper {
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+
+  .bride .parents .p-wrapper {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .parents .p-title {
+    display: block;
+    color: #797a71;
+    margin-bottom: 2.4vh;
+    font-size: 18px;
+  }
+
+  .parents .p-role {
+    color: #797a71;
+    font-size: 14px;
+  }
+
+  .parents .p-name {
+    font-size: 18px;
+  }
+
+  .parents .p-buttons {
+    display: grid;
+    padding: 8%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .parents .p-buttons a img {
+    width: 60%;
+    opacity: 0.8;
   }
 </style>

@@ -3,8 +3,8 @@ import type { ApiResponse, Couple, MainCharacter } from "./app";
 
 export const response = writable({
   couple: {
-    groom: { name: "", contacts: [] },
-    bride: { name: "", contacts: [] },
+    groom: { name: "", contacts: [], parents: [] },
+    bride: { name: "", contacts: [], parents: [] },
   },
   details: [],
   connector: "",
