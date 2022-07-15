@@ -1,5 +1,6 @@
 <script lang="ts">
   import { couple, greetings } from "../shared/app.store";
+  import { getImageUrl } from "../shared/app.util";
 </script>
 
 <div class="container">
@@ -24,7 +25,10 @@
       <div />
       {#each $couple.groom.contacts as contact}
         <a href={contact.link}>
-          <img src="/src/assets/{contact.type}.png" alt={contact.type} />
+          <img
+            src={getImageUrl(`../assets/${contact.type}.png`)}
+            alt={contact.type}
+          />
         </a>
       {/each}
     </div>
@@ -37,7 +41,10 @@
           <div class="p-buttons">
             {#each parent.contacts as contact}
               <a href={contact.link}>
-                <img src="/src/assets/{contact.type}.png" alt={contact.type} />
+                <img
+                  src={getImageUrl(`../assets/${contact.type}.png`)}
+                  alt={contact.type}
+                />
               </a>
             {/each}
           </div>
@@ -51,7 +58,10 @@
     <div class="buttons">
       {#each $couple.bride.contacts as contact}
         <a href={contact.link}>
-          <img src="/src/assets/{contact.type}.png" alt="hh" />
+          <img
+            src={getImageUrl(`../assets/${contact.type}.png`)}
+            alt={contact.type}
+          />
         </a>
       {/each}
     </div>
@@ -64,7 +74,10 @@
           <div class="p-buttons">
             {#each parent.contacts as contact}
               <a href={contact.link}>
-                <img src="/src/assets/{contact.type}.png" alt={contact.type} />
+                <img
+                  src={getImageUrl(`../assets/${contact.type}.png`)}
+                  alt={contact.type}
+                />
               </a>
             {/each}
           </div>
