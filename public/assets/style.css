@@ -5,4 +5,11 @@ body {
   position: relative;
   font-family: "IBM Plex Sans KR", sans-serif;
   background-color: #f4f4f4;
+  width: 100vw;
+}
+
+#app {
+  width: 100%;
+  max-width: 600px !important;
+  margin: auto;
 }

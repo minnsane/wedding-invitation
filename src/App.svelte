@@ -14,20 +14,10 @@
     const mainData = await getMain();
     response.set(mainData);
   });
-
-  afterUpdate(() => {
-    if (innerWidth >= MAX_MOBILE_SCREEN_WIDTH) {
-      alert("현재는 모바일 버전만 지원하고 있어요. 조금만 기다려주세요!");
-    }
-  });
 </script>
 
-<svelte:window bind:innerWidth />
-
 <main>
-  {#if innerWidth < MAX_MOBILE_SCREEN_WIDTH}
-    <Home />
-    <Invitation />
-    <Timeline />
-  {/if}
+  <Home />
+  <Invitation />
+  <Timeline />
 </main>
