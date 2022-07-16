@@ -18,7 +18,7 @@
 <style>
   .main {
     background-image: url("/image/main.jpg");
-    height: 100%;
+    height: 100vh;
     background-size: cover;
     background-position: center;
   }

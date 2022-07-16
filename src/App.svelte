@@ -1,20 +1,19 @@
 <script lang="ts">
-  import { Swiper, SwiperSlide } from "swiper/svelte";
   import Home from "./components/Home.svelte";
   import Invitation from "./components/Invitation.svelte";
-  import "swiper/css";
+  import Timeline from "./components/Timeline.svelte";
   import { afterUpdate, onMount } from "svelte";
   import { getMain } from "./lib/api";
   import { response } from "./shared/app.store";
 
   const MAX_MOBILE_SCREEN_WIDTH = 512;
 
+  let innerWidth;
+
   onMount(async () => {
     const mainData = await getMain();
     response.set(mainData);
   });
-
-  let innerWidth;
 
   afterUpdate(() => {
     if (innerWidth >= MAX_MOBILE_SCREEN_WIDTH) {
@@ -27,12 +26,8 @@
 
 <main>
   {#if innerWidth < MAX_MOBILE_SCREEN_WIDTH}
-    <Swiper slidesPerView={1} direction={"vertical"}>
-      <SwiperSlide><Home /></SwiperSlide>
-      <SwiperSlide><Invitation /></SwiperSlide>
-      <!--
-    <SwiperSlide><Timeline /></SwiperSlide>
-    -->
-    </Swiper>
+    <Home />
+    <Invitation />
+    <Timeline />
   {/if}
 </main>
