@@ -19,5 +19,7 @@
 <main>
   <Home />
   <Invitation />
+  <!--
   <Timeline />
+  -->
 </main>

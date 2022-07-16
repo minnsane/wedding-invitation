@@ -28,20 +28,23 @@
 <div class="contact">
   {#each [MainRole.Groom, MainRole.Bride] as role}
     <div class={role}>
-      {#if role === MainRole.Groom}
-        <span class="role">{getKRName(role)}</span>
-        <span class="name">{$couple[role].name}</span>
-      {:else}
-        <span class="name">{$couple[role].name}</span>
-        <span class="role">{getKRName(role)}</span>
-      {/if}
-      <div class="buttons">
-        {#each $couple[role].contacts as contact}
-          <a href={contact.link}>
-            <img src="/image/{contact.type}.png" alt={contact.type} />
-          </a>
-        {/each}
+      <div class="main-role">
+        {#if role === MainRole.Groom}
+          <span class="role">{getKRName(role)}</span>
+          <span class="name">{$couple[role].name}</span>
+        {:else}
+          <span class="name">{$couple[role].name}</span>
+          <span class="role">{getKRName(role)}</span>
+        {/if}
+        <div class="buttons">
+          {#each $couple[role].contacts as contact}
+            <a href={contact.link}>
+              <img src="/image/{contact.type}.png" alt={contact.type} />
+            </a>
+          {/each}
+        </div>
       </div>
+
       <div class="parents">
         <div class="p-wrapper">
           <span class="p-title">{getKRName(role)}측 혼주</span>
@@ -67,15 +70,15 @@
     background: linear-gradient(
       0deg,
       rgba(244, 244, 244, 1) 0%,
-      rgba(255, 255, 255, 1) 10%,
-      rgba(255, 255, 255, 1) 90%,
+      rgba(255, 255, 255, 1) 20%,
+      rgba(255, 255, 255, 1) 80%,
       rgba(244, 244, 244, 1) 100%
     );
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0 30px 0;
-    min-height: 280px;
+    margin-top: 20px;
+    min-height: 300px;
     p {
       text-align: center;
       width: 100%;
@@ -88,22 +91,28 @@
     }
   }
   .contact {
-    padding-top: 30px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 30px;
+    margin: 40px 0 60px 0;
     .groom {
       text-align: right;
+      .main-role {
+        padding-right: 15px;
+      }
       .role {
         padding-right: 10px;
       }
       .parents {
         margin-left: auto;
+        border-right: 1px dotted #c6c6c6;
       }
     }
     .bride {
       text-align: left;
+      .main-role {
+        padding-left: 15px;
+      }
       .role {
         padding-left: 10px;
       }
@@ -127,7 +136,7 @@
     }
     .parents {
       margin-top: 30px;
-      width: 130px;
+      width: 150px;
       .p-wrapper {
         text-align: center;
       }
@@ -145,11 +154,10 @@
         font-size: 18px;
       }
       .p-buttons {
-        display: grid;
-        padding: 8%;
-        grid-template-columns: repeat(2, 1fr);
+        margin: 10px 0;
         a img {
-          width: 60%;
+          width: 32px;
+          padding: 0 5px;
           opacity: 0.8;
         }
       }
