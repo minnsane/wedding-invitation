@@ -15,40 +15,32 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .main {
     background-image: url("/image/main.jpg");
-    height: 100%;
+    height: 100vh;
     background-size: cover;
     background-position: center;
   }
-
   .description {
-    position: absolute;
-    top: 15vh;
-    right: 10vw;
-    width: 100%;
-    height: 100%;
+    padding-top: 15vh;
+    padding-right: 7%;
     text-align: right;
   }
-
   .title {
     font-weight: 300;
     font-size: 30px;
     color: #313e40;
     margin-bottom: 12px;
+    span {
+      display: inline-block;
+    }
   }
-
-  .title span {
-    display: inline-block;
-  }
-
   .connector {
     opacity: 0.6;
     font-size: 20px;
     line-height: 20px;
   }
-
   .detail {
     opacity: 0.6;
     font-size: 18px;
