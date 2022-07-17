@@ -2,6 +2,7 @@
   import "chota";
   import Home from "./components/Home.svelte";
   import Invitation from "./components/Invitation.svelte";
+  import Map from "./components/Map.svelte";
   import { onMount } from "svelte";
   import { getMain } from "./lib/api";
   import { response } from "./shared/app.store";
@@ -15,6 +16,7 @@
 <main>
   <Home />
   <Invitation />
+  <Map />
   <!--
   <Timeline />
   -->

@@ -202,7 +202,6 @@
     width: 100%;
     text-align: center;
     .title {
-      color: #797a71;
       font-size: 18px;
       display: block;
       margin-bottom: 20px;

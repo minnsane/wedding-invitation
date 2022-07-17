@@ -1,8 +1,15 @@
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
 export interface ApiResponse {
   couple: Couple;
   details: string[];
   connector: string;
   greetings: Greeting[];
+  map: Map | null;
 }
 
 export interface MainCharacter {
@@ -39,4 +46,14 @@ export interface Greeting {
   isSubText: boolean;
   followingGapLines: number;
   text: string;
+}
+
+export interface Map {
+  key: string;
+  position: {
+    lat: number;
+    lng: number;
+  };
+  name: string;
+  address: string;
 }
