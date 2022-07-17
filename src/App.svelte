@@ -1,14 +1,10 @@
 <script lang="ts">
+  import "chota";
   import Home from "./components/Home.svelte";
   import Invitation from "./components/Invitation.svelte";
-  import Timeline from "./components/Timeline.svelte";
-  import { afterUpdate, onMount } from "svelte";
+  import { onMount } from "svelte";
   import { getMain } from "./lib/api";
   import { response } from "./shared/app.store";
-
-  const MAX_MOBILE_SCREEN_WIDTH = 512;
-
-  let innerWidth;
 
   onMount(async () => {
     const mainData = await getMain();
@@ -23,3 +19,12 @@
   <Timeline />
   -->
 </main>
+
+<style>
+  :global(:root) {
+    --bg-color: #f4f4f4;
+    --color-lightGrey: rgba(255, 255, 255, 0.5);
+    --color-error: #fff;
+    --font-family: "IBM Plex Sans KR", sans-serif;
+  }
+</style>

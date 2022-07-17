@@ -1,13 +1,29 @@
 <script lang="ts">
+  import { Button, Modal } from "svelte-chota";
+  import { mdiFaceMan, mdiFaceWoman } from "@mdi/js";
   import { couple, greetings } from "../shared/app.store";
+  import { tick } from "svelte";
+  import LayerAccount from "./LayerAccount.svelte";
 
   enum MainRole {
     Groom = "groom",
     Bride = "bride",
   }
 
+  const mainRoles = [MainRole.Groom, MainRole.Bride];
+  let isModalOpen = false;
+  let accountRoleName;
+  let accounts = [];
+
   function getKRName(role: MainRole): string {
     return role === MainRole.Groom ? "신랑" : "신부";
+  }
+
+  function onClickAccountButton(role: MainRole): void {
+    accounts = $couple[role].accounts;
+    accountRoleName = getKRName(role);
+    tick();
+    isModalOpen = true;
   }
 </script>
 
@@ -26,7 +42,7 @@
   </p>
 </div>
 <div class="contact">
-  {#each [MainRole.Groom, MainRole.Bride] as role}
+  {#each mainRoles as role}
     <div class={role}>
       <div class="main-role">
         {#if role === MainRole.Groom}
@@ -64,14 +80,32 @@
     </div>
   {/each}
 </div>
+<div class="hearts">
+  <span class="title">신랑, 신부에게 마음 전하시는 곳</span>
+  {#each mainRoles as role}
+    <div class="btn-wrapper">
+      <Button
+        outline
+        icon={role === MainRole.Groom ? mdiFaceMan : mdiFaceWoman}
+        class="bg-light bd-grey is-marginless is-horizontal-align"
+        on:click={() => onClickAccountButton(role)}
+      >
+        {getKRName(role)}측 계좌번호
+      </Button>
+    </div>
+  {/each}
+</div>
+<Modal bind:open={isModalOpen}>
+  <LayerAccount {accounts} {accountRoleName} bind:isModalOpen />
+</Modal>
 
 <style lang="scss">
   .introduction {
     background: linear-gradient(
       0deg,
       rgba(244, 244, 244, 1) 0%,
-      rgba(255, 255, 255, 1) 20%,
-      rgba(255, 255, 255, 1) 80%,
+      rgba(255, 255, 255, 1) 15%,
+      rgba(255, 255, 255, 1) 85%,
       rgba(244, 244, 244, 1) 100%
     );
     display: flex;
@@ -94,7 +128,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 40px 0 60px 0;
+    margin-top: 40px;
     .groom {
       text-align: right;
       .main-role {
@@ -134,33 +168,49 @@
         }
       }
     }
-    .parents {
-      margin-top: 30px;
-      width: 150px;
-      .p-wrapper {
-        text-align: center;
+  }
+  .parents {
+    margin-top: 30px;
+    width: 150px;
+    .p-wrapper {
+      text-align: center;
+    }
+    .p-title {
+      display: block;
+      color: #797a71;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .p-role {
+      color: #797a71;
+      font-size: 14px;
+    }
+    .p-name {
+      font-size: 18px;
+    }
+    .p-buttons {
+      margin: 10px 0;
+      a img {
+        width: 32px;
+        margin: 0 5px;
+        opacity: 0.8;
       }
-      .p-title {
-        display: block;
-        color: #797a71;
-        margin-bottom: 20px;
-        font-size: 18px;
-      }
-      .p-role {
-        color: #797a71;
-        font-size: 14px;
-      }
-      .p-name {
-        font-size: 18px;
-      }
-      .p-buttons {
-        margin: 10px 0;
-        a img {
-          width: 32px;
-          padding: 0 5px;
-          opacity: 0.8;
-        }
-      }
+    }
+  }
+  .hearts {
+    margin: 60px 0 100px 0;
+    width: 100%;
+    text-align: center;
+    .title {
+      color: #797a71;
+      font-size: 18px;
+      display: block;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .btn-wrapper {
+      width: 100%;
+      margin: 10px 0;
     }
   }
 </style>

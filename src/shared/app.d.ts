@@ -9,6 +9,7 @@ export interface MainCharacter {
   name: string;
   contacts: Contact[];
   parents: Parent[];
+  accounts: Account[];
 }
 
 export interface Contact {
@@ -20,6 +21,13 @@ export interface Parent {
   role: string;
   name: string;
   contacts: Contact[];
+}
+
+export interface Account {
+  role: string;
+  name: string;
+  bank: string;
+  number: string;
 }
 
 export interface Couple {
