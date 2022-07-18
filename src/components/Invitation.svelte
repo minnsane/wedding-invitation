@@ -4,13 +4,8 @@
   import { couple, greetings } from "../shared/app.store";
   import { tick } from "svelte";
   import LayerAccount from "./LayerAccount.svelte";
+  import { MainRole, mainRoles } from "../shared/app.value";
 
-  enum MainRole {
-    Groom = "groom",
-    Bride = "bride",
-  }
-
-  const mainRoles = [MainRole.Groom, MainRole.Bride];
   let isModalOpen = false;
   let accountRoleName;
   let accounts = [];
