@@ -10,6 +10,7 @@ export interface ApiResponse {
   connector: string;
   greetings: Greeting[];
   map: Map | null;
+  timecards: Array<{ title: string; description: string }>;
 }
 
 export interface MainCharacter {
@@ -17,6 +18,7 @@ export interface MainCharacter {
   contacts: Contact[];
   parents: Parent[];
   accounts: Account[];
+  about: About;
 }
 
 export interface Contact {
@@ -56,4 +58,11 @@ export interface Map {
   };
   name: string;
   address: string;
+  placeDetail: string;
+  link: string;
+}
+
+export interface About {
+  contents: { label: string; detail: string }[];
+  tags: { emoji: string; detail: string }[];
 }

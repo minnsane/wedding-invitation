@@ -10,17 +10,25 @@ body {
   width: 100%;
   max-width: 600px !important;
   margin: auto;
+  margin-bottom: 70px;
 }
 
 .speech-bubble {
   position: relative;
-  background: #ea4d4d;
+  background: linear-gradient(
+    90deg,
+    #ea4d4d 0%,
+    #ea4d4d 73%,
+    #fff 73%,
+    #fff 100%
+  );
   border-radius: 0.4em;
-  padding: 5px 12px;
+  padding: 2px 6px 2px 4px;
   font-size: 14px;
   font-weight: 600;
   margin-top: -88px;
   color: white;
+  border: 2px solid #ea4d4d;
 }
 
 .speech-bubble:after {
@@ -35,4 +43,21 @@ body {
   border-bottom: 0;
   margin-left: -7px;
   margin-bottom: -7px;
+}
+
+.speech-bubble .text {
+  padding: 0 10px 0 6px;
+  color: white;
+}
+
+.speech-bubble .arrow {
+  margin-bottom: -2px;
+}
+
+h2.title {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
 }

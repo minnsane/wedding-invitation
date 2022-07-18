@@ -4,24 +4,15 @@
   import { couple, greetings } from "../shared/app.store";
   import { tick } from "svelte";
   import LayerAccount from "./LayerAccount.svelte";
+  import { MainRole, mainRoles, mapRoleToKRLabel } from "../shared/app.value";
 
-  enum MainRole {
-    Groom = "groom",
-    Bride = "bride",
-  }
-
-  const mainRoles = [MainRole.Groom, MainRole.Bride];
   let isModalOpen = false;
   let accountRoleName;
   let accounts = [];
 
-  function getKRName(role: MainRole): string {
-    return role === MainRole.Groom ? "신랑" : "신부";
-  }
-
   function onClickAccountButton(role: MainRole): void {
     accounts = $couple[role].accounts;
-    accountRoleName = getKRName(role);
+    accountRoleName = mapRoleToKRLabel.get(role);
     tick();
     isModalOpen = true;
   }
@@ -46,11 +37,11 @@
     <div class={role}>
       <div class="main-role">
         {#if role === MainRole.Groom}
-          <span class="role">{getKRName(role)}</span>
+          <span class="role">{mapRoleToKRLabel.get(role)}</span>
           <span class="name">{$couple[role].name}</span>
         {:else}
           <span class="name">{$couple[role].name}</span>
-          <span class="role">{getKRName(role)}</span>
+          <span class="role">{mapRoleToKRLabel.get(role)}</span>
         {/if}
         <div class="buttons">
           {#each $couple[role].contacts as contact}
@@ -63,7 +54,7 @@
 
       <div class="parents">
         <div class="p-wrapper">
-          <span class="p-title">{getKRName(role)}측 혼주</span>
+          <span class="p-title">{mapRoleToKRLabel.get(role)}측 혼주</span>
           {#each $couple[role].parents as parent}
             <span class="p-role">{parent.role}</span>
             <span class="p-name">{parent.name}</span>
@@ -81,7 +72,7 @@
   {/each}
 </div>
 <div class="hearts">
-  <span class="title">신랑, 신부에게 마음 전하시는 곳</span>
+  <h2 class="title">신랑, 신부에게 마음 전하시는 곳</h2>
   {#each mainRoles as role}
     <div class="btn-wrapper">
       <Button
@@ -90,7 +81,7 @@
         class="bg-light bd-grey is-marginless is-horizontal-align"
         on:click={() => onClickAccountButton(role)}
       >
-        {getKRName(role)}측 계좌번호
+        {mapRoleToKRLabel.get(role)}측 계좌번호
       </Button>
     </div>
   {/each}
@@ -201,12 +192,6 @@
     margin: 60px 0 100px 0;
     width: 100%;
     text-align: center;
-    .title {
-      font-size: 18px;
-      display: block;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
     .btn-wrapper {
       width: 100%;
       margin: 10px 0;

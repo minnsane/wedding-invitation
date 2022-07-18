@@ -3,6 +3,8 @@
   import Home from "./components/Home.svelte";
   import Invitation from "./components/Invitation.svelte";
   import Map from "./components/Map.svelte";
+  import About from "./components/About.svelte";
+  import Timeline from "./components/Timeline.svelte";
   import { onMount } from "svelte";
   import { getMain } from "./lib/api";
   import { response } from "./shared/app.store";
@@ -17,9 +19,8 @@
   <Home />
   <Invitation />
   <Map />
-  <!--
+  <About />
   <Timeline />
-  -->
 </main>
 
 <style>
