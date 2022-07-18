@@ -10,6 +10,7 @@ export interface ApiResponse {
   connector: string;
   greetings: Greeting[];
   map: Map | null;
+  timecards: Array<{ title: string; description: string }>;
 }
 
 export interface MainCharacter {

@@ -20,6 +20,7 @@ export const response = writable({
   connector: "",
   greetings: [],
   map: null,
+  timecards: [],
 } as ApiResponse);
 
 export const couple = derived(response, ($response) => $response.couple);
@@ -27,3 +28,4 @@ export const details = derived(response, ($response) => $response.details);
 export const connector = derived(response, ($response) => $response.connector);
 export const greetings = derived(response, ($response) => $response.greetings);
 export const map = derived(response, ($response) => $response.map);
+export const timecards = derived(response, ($response) => $response.timecards);
