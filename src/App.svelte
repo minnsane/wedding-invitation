@@ -6,6 +6,7 @@
   import { onMount } from "svelte";
   import { getMain } from "./lib/api";
   import { response } from "./shared/app.store";
+  import About from "./components/About.svelte";
 
   onMount(async () => {
     const mainData = await getMain();
@@ -17,6 +18,7 @@
   <Home />
   <Invitation />
   <Map />
+  <About />
   <!--
   <Timeline />
   -->

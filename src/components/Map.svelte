@@ -2,7 +2,6 @@
   import { beforeUpdate, onDestroy } from "svelte";
   import { map } from "../shared/app.store";
   import { mdiArrowRightBold } from "@mdi/js";
-  import { Icon } from "svelte-chota";
 
   let mapContainer;
   let unsubscribeMap;
@@ -95,7 +94,7 @@
 
 <style lang="scss">
   .map-wrapper {
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     text-align: center;
     > * {
       display: block;

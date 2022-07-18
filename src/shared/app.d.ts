@@ -17,6 +17,7 @@ export interface MainCharacter {
   contacts: Contact[];
   parents: Parent[];
   accounts: Account[];
+  about: About;
 }
 
 export interface Contact {
@@ -58,4 +59,9 @@ export interface Map {
   address: string;
   placeDetail: string;
   link: string;
+}
+
+export interface About {
+  contents: { label: string; detail: string }[];
+  tags: { emoji: string; detail: string }[];
 }
