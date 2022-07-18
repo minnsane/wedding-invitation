@@ -10,6 +10,7 @@ body {
   width: 100%;
   max-width: 600px !important;
   margin: auto;
+  margin-bottom: 70px;
 }
 
 .speech-bubble {
@@ -35,4 +36,11 @@ body {
   border-bottom: 0;
   margin-left: -7px;
   margin-bottom: -7px;
+}
+
+.title {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
 }

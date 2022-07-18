@@ -66,7 +66,7 @@
 
 {#if $map}
   <div class="map-wrapper">
-    <span class="title">찾아오시는 길</span>
+    <h2 class="title">찾아오시는 길</h2>
     <span class="address">{$map.address}</span>
     <span class="place">{$map.name}</span>
     <div class="map-container" bind:this={mapContainer} />
@@ -80,11 +80,6 @@
     * {
       display: block;
     }
-    .title {
-      font-size: 19px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
     .address {
       font-size: 16px;
       font-weight: 300;
@@ -97,9 +92,9 @@
   }
   .map-container {
     width: 96vw;
-    height: 96vw;
+    height: 77vw;
     max-width: 400px;
-    max-height: 400px;
+    max-height: 320px;
     margin: auto !important;
   }
 </style>

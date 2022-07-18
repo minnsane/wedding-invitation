@@ -81,7 +81,7 @@
   {/each}
 </div>
 <div class="hearts">
-  <span class="title">신랑, 신부에게 마음 전하시는 곳</span>
+  <h2 class="title">신랑, 신부에게 마음 전하시는 곳</h2>
   {#each mainRoles as role}
     <div class="btn-wrapper">
       <Button
@@ -201,12 +201,6 @@
     margin: 60px 0 100px 0;
     width: 100%;
     text-align: center;
-    .title {
-      font-size: 18px;
-      display: block;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
     .btn-wrapper {
       width: 100%;
       margin: 10px 0;
