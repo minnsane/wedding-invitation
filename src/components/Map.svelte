@@ -53,12 +53,12 @@
 
             const content = `
               <div class="speech-bubble">
-                <span class="text">${mapValue.name}</span>
-                <svg class="arrow" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                  <a href="${mapValue.link}">
+                <a href="${mapValue.link}">
+                  <span class="text">${mapValue.name}</span>
+                  <svg class="arrow" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
                     <path d="${mdiArrowRightBold}" fill="#ea4d4d"/>
-                  </a>
-                </svg>
+                  </svg>
+                </a>
               </div>
             `;
 

@@ -47,6 +47,7 @@ body {
 
 .speech-bubble .text {
   padding: 0 10px 0 6px;
+  color: white;
 }
 
 .speech-bubble .arrow {
