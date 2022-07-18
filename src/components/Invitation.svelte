@@ -4,19 +4,15 @@
   import { couple, greetings } from "../shared/app.store";
   import { tick } from "svelte";
   import LayerAccount from "./LayerAccount.svelte";
-  import { MainRole, mainRoles } from "../shared/app.value";
+  import { MainRole, mainRoles, mapRoleToKRLabel } from "../shared/app.value";
 
   let isModalOpen = false;
   let accountRoleName;
   let accounts = [];
 
-  function getKRName(role: MainRole): string {
-    return role === MainRole.Groom ? "신랑" : "신부";
-  }
-
   function onClickAccountButton(role: MainRole): void {
     accounts = $couple[role].accounts;
-    accountRoleName = getKRName(role);
+    accountRoleName = mapRoleToKRLabel.get(role);
     tick();
     isModalOpen = true;
   }
@@ -41,11 +37,11 @@
     <div class={role}>
       <div class="main-role">
         {#if role === MainRole.Groom}
-          <span class="role">{getKRName(role)}</span>
+          <span class="role">{mapRoleToKRLabel.get(role)}</span>
           <span class="name">{$couple[role].name}</span>
         {:else}
           <span class="name">{$couple[role].name}</span>
-          <span class="role">{getKRName(role)}</span>
+          <span class="role">{mapRoleToKRLabel.get(role)}</span>
         {/if}
         <div class="buttons">
           {#each $couple[role].contacts as contact}
@@ -58,7 +54,7 @@
 
       <div class="parents">
         <div class="p-wrapper">
-          <span class="p-title">{getKRName(role)}측 혼주</span>
+          <span class="p-title">{mapRoleToKRLabel.get(role)}측 혼주</span>
           {#each $couple[role].parents as parent}
             <span class="p-role">{parent.role}</span>
             <span class="p-name">{parent.name}</span>
@@ -85,7 +81,7 @@
         class="bg-light bd-grey is-marginless is-horizontal-align"
         on:click={() => onClickAccountButton(role)}
       >
-        {getKRName(role)}측 계좌번호
+        {mapRoleToKRLabel.get(role)}측 계좌번호
       </Button>
     </div>
   {/each}
