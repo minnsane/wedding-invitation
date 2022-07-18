@@ -56,4 +56,6 @@ export interface Map {
   };
   name: string;
   address: string;
+  placeDetail: string;
+  link: string;
 }

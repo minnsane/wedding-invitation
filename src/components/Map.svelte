@@ -1,6 +1,8 @@
 <script lang="ts">
   import { beforeUpdate } from "svelte";
   import { map } from "../shared/app.store";
+  import { mdiArrowRightBold } from "@mdi/js";
+  import { Icon } from "svelte-chota";
 
   let mapContainer;
 
@@ -48,13 +50,24 @@
             kakao.maps.ControlPosition.RIGHT
           );
 
+          const content = `
+              <div class="speech-bubble">
+                <span class="text">${mapValue.name}</span>
+                <svg class="arrow" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                  <a href="${mapValue.link}">
+                    <path d="${mdiArrowRightBold}" fill="#ea4d4d"/>
+                  </a>
+                </svg>
+              </div>
+            `;
+
           new kakao.maps.CustomOverlay({
             map: kakaoMap,
             position: new kakao.maps.LatLng(
               mapValue.position.lat,
               mapValue.position.lng
             ),
-            content: `<div class="speech-bubble">${mapValue.name}</div>`,
+            content,
             yAnchor: 1,
           });
         });
@@ -67,8 +80,11 @@
 {#if $map}
   <div class="map-wrapper">
     <h2 class="title">찾아오시는 길</h2>
+    <span class="place">
+      {$map.name}
+      {$map.placeDetail ?? ""}
+    </span>
     <span class="address">{$map.address}</span>
-    <span class="place">{$map.name}</span>
     <div class="map-container" bind:this={mapContainer} />
   </div>
 {/if}
@@ -77,17 +93,17 @@
   .map-wrapper {
     margin-bottom: 30px;
     text-align: center;
-    * {
+    > * {
       display: block;
     }
     .address {
       font-size: 16px;
       font-weight: 300;
+      margin-bottom: 20px;
     }
     .place {
       font-size: 18px;
       font-weight: 500;
-      margin-bottom: 20px;
     }
   }
   .map-container {
