@@ -12,6 +12,16 @@
   let currentIdx = 0;
 
   const plugins = [new Arrow(), new Pagination({ type: "bullet" })];
+
+  function preload(index: number): void {
+    const image = new Image();
+    image.src = $galleryImages[index];
+    image.addEventListener("load", onImageLoaded);
+
+    function onImageLoaded(): void {
+      image.removeEventListener("load", onImageLoaded);
+    }
+  }
 </script>
 
 <section class="section-gallery">
@@ -26,6 +36,8 @@
           tick();
           isModalOpen = true;
         }}
+        on:mouseover|once={() => preload(idx)}
+        on:focus={() => null}
       />
     {/each}
   </div>
