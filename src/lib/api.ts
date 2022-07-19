@@ -1,8 +1,8 @@
 import axios from "axios";
+import { appName } from "../shared/app.value";
 
 const instance = axios.create({
-  baseURL:
-    "https://minj-hearts-shwa-default-rtdb.asia-southeast1.firebasedatabase.app",
+  baseURL: `https://${appName}-default-rtdb.asia-southeast1.firebasedatabase.app`,
 });
 
 export const getMain = async () =>

@@ -15,26 +15,28 @@
   }
 </script>
 
-<div class="title">
-  {accountRoleName}
-  {account.role}
-  <ClipBoard text={account.number} let:copy on:copy={afterCopy}>
-    <button class="btn copy text-grey pull-right" on:click={copy}>
-      {#if !isCopied}
-        <Icon src={mdiContentCopy} /> 복사하기
-      {:else}
-        <span class="text-success" in:fade>
-          <Icon src={mdiCheck} /> 복사완료!
-        </span>
-      {/if}
-    </button>
-  </ClipBoard>
-</div>
-<div class="info">
-  <span class="bank">{account.bank}</span>
-  <span class="number">{account.number}</span>
-  <span class="name">(예금주: {account.name})</span>
-</div>
+<section class="section-account-info">
+  <div class="title">
+    {accountRoleName}
+    {account.role}
+    <ClipBoard text={account.number} let:copy on:copy={afterCopy}>
+      <button class="btn copy text-grey pull-right" on:click={copy}>
+        {#if !isCopied}
+          <Icon src={mdiContentCopy} /> 복사하기
+        {:else}
+          <span class="text-success" in:fade>
+            <Icon src={mdiCheck} /> 복사완료!
+          </span>
+        {/if}
+      </button>
+    </ClipBoard>
+  </div>
+  <div class="info">
+    <span class="bank">{account.bank}</span>
+    <span class="number">{account.number}</span>
+    <span class="name">(예금주: {account.name})</span>
+  </div>
+</section>
 
 <style lang="scss">
   .title {

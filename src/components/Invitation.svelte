@@ -18,77 +18,79 @@
   }
 </script>
 
-<div class="introduction">
-  <p>
-    {#each $greetings as greeting}
-      {#if greeting.isSubText}
-        <span class="subtxt">{greeting.text}</span>
-      {:else}
-        {greeting.text}
-      {/if}
-      {#each { length: greeting.followingGapLines } as _}
-        <br />
-      {/each}
-    {/each}
-  </p>
-</div>
-<div class="contact">
-  {#each mainRoles as role}
-    <div class={role}>
-      <div class="main-role">
-        {#if role === MainRole.Groom}
-          <span class="role">{mapRoleToKRLabel.get(role)}</span>
-          <span class="name">{$couple[role].name}</span>
+<section class="section-invitation">
+  <div class="introduction">
+    <p>
+      {#each $greetings as greeting}
+        {#if greeting.isSubText}
+          <span class="subtxt">{greeting.text}</span>
         {:else}
-          <span class="name">{$couple[role].name}</span>
-          <span class="role">{mapRoleToKRLabel.get(role)}</span>
+          {greeting.text}
         {/if}
-        <div class="buttons">
-          {#each $couple[role].contacts as contact}
-            <a href={contact.link}>
-              <img src="/image/{contact.type}.png" alt={contact.type} />
-            </a>
-          {/each}
+        {#each { length: greeting.followingGapLines } as _}
+          <br />
+        {/each}
+      {/each}
+    </p>
+  </div>
+  <div class="contact">
+    {#each mainRoles as role}
+      <div class={role}>
+        <div class="main-role">
+          {#if role === MainRole.Groom}
+            <span class="role">{mapRoleToKRLabel.get(role)}</span>
+            <span class="name">{$couple[role].name}</span>
+          {:else}
+            <span class="name">{$couple[role].name}</span>
+            <span class="role">{mapRoleToKRLabel.get(role)}</span>
+          {/if}
+          <div class="buttons">
+            {#each $couple[role].contacts as contact}
+              <a href={contact.link}>
+                <img src="/image/{contact.type}.png" alt={contact.type} />
+              </a>
+            {/each}
+          </div>
         </div>
-      </div>
 
-      <div class="parents">
-        <div class="p-wrapper">
-          <span class="p-title">{mapRoleToKRLabel.get(role)}측 혼주</span>
-          {#each $couple[role].parents as parent}
-            <span class="p-role">{parent.role}</span>
-            <span class="p-name">{parent.name}</span>
-            <div class="p-buttons">
-              {#each parent.contacts as contact}
-                <a href={contact.link}>
-                  <img src="/image/{contact.type}.png" alt={contact.type} />
-                </a>
-              {/each}
-            </div>
-          {/each}
+        <div class="parents">
+          <div class="p-wrapper">
+            <span class="p-title">{mapRoleToKRLabel.get(role)}측 혼주</span>
+            {#each $couple[role].parents as parent}
+              <span class="p-role">{parent.role}</span>
+              <span class="p-name">{parent.name}</span>
+              <div class="p-buttons">
+                {#each parent.contacts as contact}
+                  <a href={contact.link}>
+                    <img src="/image/{contact.type}.png" alt={contact.type} />
+                  </a>
+                {/each}
+              </div>
+            {/each}
+          </div>
         </div>
       </div>
-    </div>
-  {/each}
-</div>
-<div class="hearts">
-  <h2 class="title">신랑, 신부에게 마음 전하시는 곳</h2>
-  {#each mainRoles as role}
-    <div class="btn-wrapper">
-      <Button
-        outline
-        icon={role === MainRole.Groom ? mdiFaceMan : mdiFaceWoman}
-        class="bg-light bd-grey is-marginless is-horizontal-align"
-        on:click={() => onClickAccountButton(role)}
-      >
-        {mapRoleToKRLabel.get(role)}측 계좌번호
-      </Button>
-    </div>
-  {/each}
-</div>
-<Modal bind:open={isModalOpen}>
-  <LayerAccount {accounts} {accountRoleName} bind:isModalOpen />
-</Modal>
+    {/each}
+  </div>
+  <div class="hearts">
+    <h2 class="title">신랑, 신부에게 마음 전하시는 곳</h2>
+    {#each mainRoles as role}
+      <div class="btn-wrapper">
+        <Button
+          outline
+          icon={role === MainRole.Groom ? mdiFaceMan : mdiFaceWoman}
+          class="bg-light bd-grey is-marginless is-horizontal-align"
+          on:click={() => onClickAccountButton(role)}
+        >
+          {mapRoleToKRLabel.get(role)}측 계좌번호
+        </Button>
+      </div>
+    {/each}
+  </div>
+  <Modal bind:open={isModalOpen}>
+    <LayerAccount {accounts} {accountRoleName} bind:isModalOpen />
+  </Modal>
+</section>
 
 <style lang="scss">
   .introduction {
@@ -189,7 +191,7 @@
     }
   }
   .hearts {
-    margin: 60px 0 100px 0;
+    margin-top: 60px;
     width: 100%;
     text-align: center;
     .btn-wrapper {

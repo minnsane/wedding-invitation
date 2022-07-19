@@ -11,6 +11,7 @@ export interface ApiResponse {
   greetings: Greeting[];
   map: Map | null;
   timecards: Array<{ title: string; description: string }>;
+  images: Images;
 }
 
 export interface MainCharacter {
@@ -65,4 +66,13 @@ export interface Map {
 export interface About {
   contents: { label: string; detail: string }[];
   tags: { emoji: string; detail: string }[];
+}
+
+export interface Images {
+  main: string;
+  linkThumbnail: string;
+  bride: string;
+  groom: string;
+  galleryImages: string[];
+  thumbnails: string[];
 }

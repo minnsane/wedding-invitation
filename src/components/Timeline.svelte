@@ -2,26 +2,25 @@
   import { timecards } from "../shared/app.store";
 </script>
 
-<h2 class="title">커플 타임라인</h2>
-<div class="wrapper">
-  <div class="timeline">
-    <div class="outer">
-      {#each $timecards as card}
-        <div class="time-card">
-          <div class="time-info">
-            <h3 class="time-title">{card.title}</h3>
-            <p>{@html card.description}</p>
+<section class="section-timeline">
+  <h2 class="title">커플 타임라인</h2>
+  <div class="wrapper">
+    <div class="timeline">
+      <div class="outer">
+        {#each $timecards as card}
+          <div class="time-card">
+            <div class="time-info">
+              <h3 class="time-title">{card.title}</h3>
+              <p>{@html card.description}</p>
+            </div>
           </div>
-        </div>
-      {/each}
+        {/each}
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
-  .title {
-    margin-top: 70px;
-  }
   .wrapper {
     display: flex;
     align-items: center;
@@ -56,14 +55,14 @@
     top: -5px;
     bottom: -4.5px;
     border-width: 5px 0 5px 5px;
-    border-radius: 50px 0 0 50px;
+    border-radius: 30px 0 0 30px;
   }
   .time-card:nth-child(even)::before {
     right: 0;
-    top: 0;
+    top: -1px;
     bottom: 0;
     border-width: 5px 5px 5px 0;
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 30px 30px 0;
   }
   .time-card:first-child::before {
     border-top: 0;
@@ -84,7 +83,7 @@
     background: #fff;
     color: #333e42;
     border-radius: 10px;
-    padding: 10px;
+    padding: 6px;
   }
 
   .time-title {
@@ -93,6 +92,8 @@
     font-size: 14px;
     line-height: 16px;
     font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 6px;
   }
 
   .time-title::before {
@@ -117,7 +118,7 @@
   }
 
   .time-card:nth-child(odd) > .time-info > .time-title::before {
-    left: -32px;
+    left: -29px;
   }
 
   .time-card:nth-child(even) > .time-info > p {
@@ -125,6 +126,6 @@
   }
 
   .time-card:nth-child(even) > .time-info > .time-title::before {
-    right: -32px;
+    right: -29px;
   }
 </style>
