@@ -5,6 +5,7 @@
   import Map from "./components/Map.svelte";
   import About from "./components/About.svelte";
   import Timeline from "./components/Timeline.svelte";
+  import Gallery from "./components/Gallery.svelte";
   import { onMount } from "svelte";
   import { getMain } from "./lib/api";
   import { response } from "./shared/app.store";
@@ -21,6 +22,7 @@
   <Map />
   <About />
   <Timeline />
+  <Gallery />
 </main>
 
 <style>
