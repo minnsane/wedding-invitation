@@ -9,36 +9,38 @@
   }
 </script>
 
-<h2 class="title">
-  {getFirstName($couple.groom.name)}
-  <span class="connector">그리고</span>
-  {getFirstName($couple.bride.name)}
-</h2>
-<div class="wrapper">
-  {#each mainRoles as role}
-    <div class={`card-wrapper ${role}`}>
-      <Card class="bg-error">
-        <div class="contents">
-          {#each $couple[role].about.contents as content}
-            <div class="about-content">
-              <span class="label">{content.label}</span>
-              <span class="detail">{content.detail}</span>
-            </div>
-          {/each}
-        </div>
-        <div class="tags">
-          {#each $couple[role].about.tags as tag, i}
-            <span class="about-tag">
-              <Emoji symbol={tag.emoji} />
-              <span class="detail">{tag.detail}</span>
-            </span>
-          {/each}
-        </div>
-      </Card>
-      <img src={$coupleImage[role]} alt={`${role} picture`} />
-    </div>
-  {/each}
-</div>
+<section class="section-about">
+  <h2 class="title">
+    {getFirstName($couple.groom.name)}
+    <span class="connector">그리고</span>
+    {getFirstName($couple.bride.name)}
+  </h2>
+  <div class="wrapper">
+    {#each mainRoles as role}
+      <div class={`card-wrapper ${role}`}>
+        <Card class="bg-error">
+          <div class="contents">
+            {#each $couple[role].about.contents as content}
+              <div class="about-content">
+                <span class="label">{content.label}</span>
+                <span class="detail">{content.detail}</span>
+              </div>
+            {/each}
+          </div>
+          <div class="tags">
+            {#each $couple[role].about.tags as tag, i}
+              <span class="about-tag">
+                <Emoji symbol={tag.emoji} />
+                <span class="detail">{tag.detail}</span>
+              </span>
+            {/each}
+          </div>
+        </Card>
+        <img src={$coupleImage[role]} alt={`${role} picture`} />
+      </div>
+    {/each}
+  </div>
+</section>
 
 <style lang="scss">
   .title {

@@ -81,20 +81,21 @@
 </script>
 
 {#if $map}
-  <div class="map-wrapper">
-    <h2 class="title">찾아오시는 길</h2>
-    <span class="place">
-      {$map.name}
-      {$map.placeDetail ?? ""}
-    </span>
-    <span class="address">{$map.address}</span>
-    <div class="map-container" bind:this={mapContainer} />
-  </div>
+  <section class="section-map">
+    <div class="map-wrapper">
+      <h2 class="title">찾아오시는 길</h2>
+      <span class="place">
+        {$map.name}
+        {$map.placeDetail ?? ""}
+      </span>
+      <span class="address">{$map.address}</span>
+      <div class="map-container" bind:this={mapContainer} />
+    </div>
+  </section>
 {/if}
 
 <style lang="scss">
   .map-wrapper {
-    margin-bottom: 80px;
     text-align: center;
     > * {
       display: block;

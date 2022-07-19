@@ -2,32 +2,30 @@
   import { timecards } from "../shared/app.store";
 </script>
 
-<h2 class="title">커플 타임라인</h2>
-<div class="wrapper">
-  <div class="timeline">
-    <div class="outer">
-      {#each $timecards as card}
-        <div class="time-card">
-          <div class="time-info">
-            <h3 class="time-title">{card.title}</h3>
-            <p>{@html card.description}</p>
+<section class="section-timeline">
+  <h2 class="title">커플 타임라인</h2>
+  <div class="wrapper">
+    <div class="timeline">
+      <div class="outer">
+        {#each $timecards as card}
+          <div class="time-card">
+            <div class="time-info">
+              <h3 class="time-title">{card.title}</h3>
+              <p>{@html card.description}</p>
+            </div>
           </div>
-        </div>
-      {/each}
+        {/each}
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
-  .title {
-    margin-top: 70px;
-  }
   .wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: inherit;
-    margin-bottom: 70px;
   }
   .timeline {
     padding: 0 30px;
