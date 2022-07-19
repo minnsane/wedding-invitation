@@ -23,6 +23,7 @@ export const response = writable({
   timecards: [],
   images: {
     main: "",
+    linkThumbnail: "",
     groom: "",
     bride: "",
     galleryImages: [],
@@ -31,6 +32,11 @@ export const response = writable({
 } as ApiResponse);
 
 export const couple = derived(response, ($response) => $response.couple);
+export const coupleName = derived(couple, ({ groom, bride }) => ({
+  groom: groom.name,
+  bride: bride.name,
+}));
+
 export const details = derived(response, ($response) => $response.details);
 export const connector = derived(response, ($response) => $response.connector);
 export const greetings = derived(response, ($response) => $response.greetings);
@@ -39,6 +45,10 @@ export const timecards = derived(response, ($response) => $response.timecards);
 
 const images = derived(response, ($response) => $response.images);
 export const mainImage = derived(images, ($images) => $images.main);
+export const linkThumbnailImage = derived(
+  images,
+  ($images) => $images.linkThumbnail
+);
 export const coupleImage = derived(images, ({ groom, bride }) => ({
   groom,
   bride,
