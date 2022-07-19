@@ -12,17 +12,13 @@
   let currentIdx = 0;
 
   const plugins = [new Arrow(), new Pagination({ type: "bullet" })];
-
-  function preload(index: number): void {
-    const image = new Image();
-    image.src = $galleryImages[index];
-    image.addEventListener("load", onImageLoaded);
-
-    function onImageLoaded(): void {
-      image.removeEventListener("load", onImageLoaded);
-    }
-  }
 </script>
+
+<svelte:head>
+  {#each $galleryImages as href}
+    <link rel="preload" as="image" {href} />
+  {/each}
+</svelte:head>
 
 <section class="section-gallery">
   <h2 class="title">갤러리</h2>
@@ -36,8 +32,6 @@
           tick();
           isModalOpen = true;
         }}
-        on:mouseover|once={() => preload(idx)}
-        on:focus={() => null}
       />
     {/each}
   </div>
