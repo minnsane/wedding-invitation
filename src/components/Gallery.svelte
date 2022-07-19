@@ -6,11 +6,7 @@
   import "@egjs/flicking-plugins/dist/arrow.css";
   import "@egjs/flicking-plugins/dist/pagination.css";
   import { tick } from "svelte";
-
-  const images = new Array(12).fill(0).map((_, idx) => ({
-    src: `/image/gallery/${idx + 1}.jpg`,
-    thumbnail: `/image/gallery/thumbnail/${idx + 1}.jpg`,
-  }));
+  import { galleryImages, thumbnails } from "../shared/app.store";
 
   let isModalOpen = false;
   let currentIdx = 0;
@@ -21,9 +17,9 @@
 <section class="section-gallery">
   <h2 class="title">갤러리</h2>
   <div class="thumbnail-wrapper">
-    {#each images as image, idx}
+    {#each $thumbnails as src, idx}
       <img
-        src={image.thumbnail}
+        {src}
         alt="웨딩사진 썸네일"
         on:click={() => {
           currentIdx = idx;
@@ -44,10 +40,10 @@
         }}
         {plugins}
       >
-        {#each images as image}
+        {#each $galleryImages as src}
           <FlickingPanel>
             <div class="img-wrapper">
-              <img src={image.src} alt="웨딩사진" />
+              <img {src} alt="웨딩사진" />
             </div>
           </FlickingPanel>
         {/each}

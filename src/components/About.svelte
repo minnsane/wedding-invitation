@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { couple } from "../shared/app.store";
+  import { couple, coupleImage } from "../shared/app.store";
   import { mainRoles } from "../shared/app.value";
   import Emoji from "svelte-emoji";
   import { Card } from "svelte-chota";
@@ -35,7 +35,7 @@
           {/each}
         </div>
       </Card>
-      <img src={`/image/${role}.png`} alt={`${role} picture`} />
+      <img src={$coupleImage[role]} alt={`${role} picture`} />
     </div>
   {/each}
 </div>

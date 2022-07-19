@@ -1,8 +1,9 @@
 <script>
-  import { couple, connector, details } from "../shared/app.store";
+  import { couple, connector, details, mainImage } from "../shared/app.store";
+  $: mainImageUrl = `url(${$mainImage})`;
 </script>
 
-<div class="main">
+<div class="main" style="background-image: {mainImageUrl}">
   <div class="description">
     <h1 class="title">
       <span>{$couple.groom.name}</span>
@@ -17,7 +18,6 @@
 
 <style lang="scss">
   .main {
-    background-image: url("/image/main.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center;

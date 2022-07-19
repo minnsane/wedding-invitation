@@ -27,6 +27,7 @@
     align-items: center;
     justify-content: center;
     height: inherit;
+    margin-bottom: 70px;
   }
   .timeline {
     padding: 0 30px;

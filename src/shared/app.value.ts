@@ -1,3 +1,5 @@
+import { name } from "../../package.json";
+
 export enum MainRole {
   Groom = "groom",
   Bride = "bride",
@@ -9,3 +11,5 @@ export const mapRoleToKRLabel = new Map<MainRole, string>([
   [MainRole.Groom, "신랑"],
   [MainRole.Bride, "신부"],
 ]);
+
+export const appName = name;
