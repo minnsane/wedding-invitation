@@ -113,9 +113,9 @@
   }
   .map-container {
     width: 96vw;
-    height: 77vw;
-    max-width: 400px;
-    max-height: 320px;
+    height: 64vw;
+    max-width: 420px;
+    max-height: 280px;
     margin: auto !important;
   }
 </style>
