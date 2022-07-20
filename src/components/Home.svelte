@@ -4,34 +4,11 @@
     connector,
     details,
     mainImage,
-    linkThumbnailImage,
   } from "../shared/app.store";
   import { appName } from "../shared/app.value";
 
   $: mainImageUrl = `url(${$mainImage})`;
-
-  $: metaData = [
-    {
-      property: "og:type",
-      content: `${$coupleName.groom.slice(
-        1
-      )} ${$connector} ${$coupleName.bride.slice(1)}`,
-    },
-    { property: "og:url", content: `${appName}.web.app` },
-    {
-      property: "og:description",
-      content: `${$coupleName.groom}, ${$coupleName.bride}의 결혼식에 초대합니다.`,
-    },
-    { property: "og:image", content: $linkThumbnailImage },
-  ];
 </script>
-
-<svelte:head>
-  <meta content="website" property="og:type" />
-  {#each metaData as { content, property }}
-    <meta {content} {property} />
-  {/each}
-</svelte:head>
 
 <div class="main" style="background-image: {mainImageUrl}">
   <div class="description">
