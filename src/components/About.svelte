@@ -71,6 +71,7 @@
     }
     .tags {
       width: 65%;
+      line-height: 15px;
     }
   }
   .card-wrapper.groom img {

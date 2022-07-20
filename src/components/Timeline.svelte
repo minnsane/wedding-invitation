@@ -59,7 +59,7 @@
   }
   .time-card:nth-child(even)::before {
     right: 0;
-    top: -1px;
+    top: 0;
     bottom: 0;
     border-width: 5px 5px 5px 0;
     border-radius: 0 30px 30px 0;
