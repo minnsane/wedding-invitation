@@ -59,6 +59,7 @@ export interface Map {
   };
   name: string;
   address: string;
+  phoneNumber: string;
   placeDetail: string;
   link: string;
 }

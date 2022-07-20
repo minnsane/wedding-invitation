@@ -1,7 +1,8 @@
 <script lang="ts">
   import { beforeUpdate, onDestroy } from "svelte";
   import { map } from "../shared/app.store";
-  import { mdiArrowRightBold } from "@mdi/js";
+  import { mdiArrowRightBold, mdiPhone } from "@mdi/js";
+  import { Icon } from "svelte-chota";
 
   let mapContainer;
   let unsubscribeMap;
@@ -47,6 +48,7 @@
 
             marker.setMap(kakaoMap);
             kakaoMap.setDraggable(false);
+            kakaoMap.setZoomable(false);
             kakaoMap.addControl(
               new kakao.maps.ZoomControl(),
               kakao.maps.ControlPosition.RIGHT
@@ -90,6 +92,10 @@
         {$map.placeDetail ?? ""}
       </span>
       <span class="address">{$map.address}</span>
+      <a class="phone-number" href="tel:{$map.phoneNumber}">
+        <Icon src={mdiPhone} />
+        {$map.phoneNumber}
+      </a>
       <div class="map-container" bind:this={mapContainer} />
     </div>
   </div>
@@ -100,15 +106,18 @@
     text-align: center;
     > * {
       display: block;
+      margin: 3px 0;
     }
     .address {
       font-size: 16px;
       font-weight: 300;
-      margin-bottom: 20px;
     }
     .place {
       font-size: 18px;
       font-weight: 500;
+    }
+    .phone-number {
+      font-size: 14px;
     }
   }
   .map-container {
@@ -116,6 +125,6 @@
     height: 64vw;
     max-width: 420px;
     max-height: 280px;
-    margin: auto !important;
+    margin: 20px auto 0 !important;
   }
 </style>
