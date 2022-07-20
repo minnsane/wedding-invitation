@@ -46,6 +46,7 @@
             });
 
             marker.setMap(kakaoMap);
+            kakaoMap.setDraggable(false);
             kakaoMap.addControl(
               new kakao.maps.ZoomControl(),
               kakao.maps.ControlPosition.RIGHT
