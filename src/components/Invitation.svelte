@@ -18,7 +18,7 @@
   }
 </script>
 
-<section class="section-invitation">
+<div class="section section-invitation">
   <div class="introduction">
     <p>
       {#each $greetings as greeting}
@@ -90,7 +90,7 @@
   <Modal bind:open={isModalOpen}>
     <LayerAccount {accounts} {accountRoleName} bind:isModalOpen />
   </Modal>
-</section>
+</div>
 
 <style lang="scss">
   .introduction {

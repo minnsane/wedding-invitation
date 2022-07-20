@@ -15,7 +15,7 @@
   }
 </script>
 
-<section class="section-account-info">
+<div class="wrapper-account-info">
   <div class="title">
     {accountRoleName}
     {account.role}
@@ -36,9 +36,12 @@
     <span class="number">{account.number}</span>
     <span class="name">(예금주: {account.name})</span>
   </div>
-</section>
+</div>
 
 <style lang="scss">
+  .wrapper-account-info {
+    margin-bottom: 30px;
+  }
   .title {
     font-size: 17px;
     border-bottom: 1px dashed #c6c6c6;

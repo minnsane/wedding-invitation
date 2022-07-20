@@ -2,7 +2,7 @@
   import { timecards } from "../shared/app.store";
 </script>
 
-<section class="section-timeline">
+<div class="section section-timeline">
   <h2 class="title">커플 타임라인</h2>
   <div class="wrapper">
     <div class="timeline">
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <style>
   .wrapper {
