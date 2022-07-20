@@ -70,7 +70,6 @@ export interface About {
 
 export interface Images {
   main: string;
-  linkThumbnail: string;
   bride: string;
   groom: string;
   galleryImages: string[];

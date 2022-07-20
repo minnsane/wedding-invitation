@@ -81,7 +81,7 @@
 </script>
 
 {#if $map}
-  <section class="section-map">
+  <div class="section section-map">
     <div class="map-wrapper">
       <h2 class="title">찾아오시는 길</h2>
       <span class="place">
@@ -91,7 +91,7 @@
       <span class="address">{$map.address}</span>
       <div class="map-container" bind:this={mapContainer} />
     </div>
-  </section>
+  </div>
 {/if}
 
 <style lang="scss">

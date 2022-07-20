@@ -9,7 +9,7 @@
   }
 </script>
 
-<section class="section-about">
+<div class="section section-about">
   <h2 class="title">
     {getFirstName($couple.groom.name)}
     <span class="connector">그리고</span>
@@ -40,7 +40,7 @@
       </div>
     {/each}
   </div>
-</section>
+</div>
 
 <style lang="scss">
   .title {

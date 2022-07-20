@@ -20,7 +20,7 @@
   {/each}
 </svelte:head>
 
-<section class="section-gallery">
+<div class="section section-gallery">
   <h2 class="title">갤러리</h2>
   <div class="thumbnail-wrapper">
     {#each $thumbnails as src, idx}
@@ -61,7 +61,7 @@
       </Flicking>
     </div>
   </Modal>
-</section>
+</div>
 
 <style lang="scss">
   .thumbnail-wrapper {
