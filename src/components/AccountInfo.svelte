@@ -48,7 +48,7 @@
   }
   .copy {
     font-size: 14px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0);
   }
   .info {
     font-weight: 300;
